@@ -36,8 +36,7 @@ export interface EventRegistry<T>
     /**
      * Invokes each callback attached to the given event
      */
-    //@ts-ignore
-    emit(event: string, ...args): void;
+    emit(event: string, ...args: any): void;
 }
 
 export type Events<T> = {
@@ -101,8 +100,7 @@ export class BaseEmitter implements EventRegistry<Function>
         return true;
     }
 
-    //@ts-ignore
-    emit(event: string, ...args): void
+    emit(event: string, ...args: any): void
     {
         if (! this.has(event)) {
             return;
